@@ -1,12 +1,26 @@
 package com.firstExercise.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Long id;
+
+	@Column
 	private String name;
+	@Column
 	private String surname;
+	@Column
 	private String email;
+	@Column
 	private String phone;
+	@Column
 	private String password;
 
 	public Long getId() {
