@@ -5,11 +5,12 @@ import org.springframework.stereotype.Repository;
 import com.firstExercise.models.User;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 
 @Repository
 public class UserDaoImpl implements UserDao {
-
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@Override
