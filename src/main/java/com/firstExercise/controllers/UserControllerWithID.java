@@ -10,13 +10,13 @@ import com.firstExercise.models.User;
 
 @RestController
 public class UserControllerWithID {
-	
+
 	private UserDao userDao;
-	
-	@RequestMapping("api/users")
-	public List<User>getUsers(){
+
+	@RequestMapping(value = "api/users")
+	public List<User> getUsers() {
 		List<User> user = userDao.getUsers();
-		
+
 		return user;
 	}
 }
