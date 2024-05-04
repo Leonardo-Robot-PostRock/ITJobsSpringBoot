@@ -7,4 +7,8 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface UserDao {
 	public List<User> getUsers();
+
+	void deleteUserById(Long id);
+	
+	void insertUser(User user);
 }
