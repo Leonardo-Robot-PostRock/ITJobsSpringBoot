@@ -68,7 +68,7 @@ public class UserController {
 		secondUser.setName("Leonardo");
 		secondUser.setSurname("Puebla");
 		secondUser.setEmail("leonardo@gmail.com");
-		secondUser.setPhone("2612589352");
+		secondUser.setPhone("123123124");
 		secondUser.setPassword("5678");
 		
 		user.add(firstUser);
