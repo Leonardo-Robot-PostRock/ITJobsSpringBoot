@@ -59,15 +59,15 @@ public class UserController {
 		firstUser.setName("Leonardo");
 		firstUser.setSurname("Puebla");
 		firstUser.setEmail("leonardo@gmail.com");
-		firstUser.setPhone("2612589352");
+		firstUser.setPhone("123123121");
 		firstUser.setPassword("1234");
 		
 		User secondUser = new User();
 		
 		secondUser.setId(4L);
-		secondUser.setName("Leonardo");
-		secondUser.setSurname("Puebla");
-		secondUser.setEmail("leonardo@gmail.com");
+		secondUser.setName("Roberto");
+		secondUser.setSurname("Gonzalez");
+		secondUser.setEmail("robertito@gmail.com");
 		secondUser.setPhone("123123124");
 		secondUser.setPassword("5678");
 		
