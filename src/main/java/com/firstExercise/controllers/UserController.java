@@ -26,8 +26,8 @@ public class UserController {
 		
 		user.setName("Leonardo");
 		user.setSurname("Puebla");
-		user.setEmail("leonardo38361@gmail.com");
-		user.setPhone("2612589352");
+		user.setEmail("leonardo@gmail.com");
+		user.setPhone("123431243");
 		user.setPassword("1234");
 		
 		return user;
@@ -42,7 +42,7 @@ public class UserController {
 		user.setName("Leonardo");
 		user.setSurname("Puebla");
 		user.setEmail("leonardo@gmail.com");
-		user.setPhone("2612589352");
+		user.setPhone("2556881234");
 		user.setPassword("1234");
 		
 		return user;
