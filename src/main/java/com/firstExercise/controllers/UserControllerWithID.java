@@ -42,6 +42,6 @@ public class UserControllerWithID {
 
 	@RequestMapping(value = "api/user/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable("id") Long id) {
-		return userDao.getUserById(id);
+		return userDao.findUserById(id);
 	}
 }

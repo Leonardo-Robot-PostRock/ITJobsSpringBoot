@@ -25,8 +25,10 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	@Transactional
 	public void deleteUserById(Long id) {
-		User user = entityManager.find(User.class, id);
-		entityManager.remove(user);
+		User user = findUserById(id);
+		if (user != null) {
+			entityManager.remove(user);
+		}
 	}
 
 	@Override
@@ -38,7 +40,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	@Transactional
 	public void updateUser(Long id, User user) {
-		User existingUser = entityManager.find(User.class, id);
+		User existingUser = findUserById(id);
 
 		if (existingUser != null) {
 			existingUser.setName(user.getName());
@@ -46,12 +48,13 @@ public class UserDaoImpl implements UserDao {
 			existingUser.setEmail(user.getEmail());
 			existingUser.setPhone(user.getPhone());
 			existingUser.setPassword(user.getPassword());
+			entityManager.merge(existingUser);
 		}
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public User getUserById(Long id) {
+	public User findUserById(Long id) {
 		return entityManager.find(User.class, id);
 	}
 

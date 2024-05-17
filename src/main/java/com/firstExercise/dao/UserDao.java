@@ -14,5 +14,5 @@ public interface UserDao {
 	
 	void updateUser(Long id,User user);
 	
-	public User getUserById(Long id);
+	public User findUserById(Long id);
 }
