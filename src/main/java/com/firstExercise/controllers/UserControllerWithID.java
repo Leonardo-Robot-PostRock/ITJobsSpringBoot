@@ -24,14 +24,24 @@ public class UserControllerWithID {
 
 		return user;
 	}
-	
-	@RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
+
+	@RequestMapping(value = "api/delete-user/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable("id") Long id) {
 		userDao.deleteUserById(id);
 	}
-	
-	@RequestMapping(value = "api/insertUser", method = RequestMethod.POST)
-	public void insert(@RequestBody User user) {
-		userDao.insertUser(user);
+
+	@RequestMapping(value = "api/add-user", method = RequestMethod.POST)
+	public void add(@RequestBody User user) {
+		userDao.addUser(user);
+	}
+
+	@RequestMapping(value = "api/update-user/{id}", method = RequestMethod.PUT)
+	public void update(@PathVariable("id") Long id, @RequestBody User user) {
+		userDao.updateUser(id, user);
+	}
+
+	@RequestMapping(value = "api/user/{id}", method = RequestMethod.GET)
+	public User getUser(@PathVariable("id") Long id) {
+		return userDao.getUserById(id);
 	}
 }
