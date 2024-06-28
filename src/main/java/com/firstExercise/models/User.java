@@ -12,12 +12,16 @@ public class User {
 
 	@Column
 	private String name;
+	
 	@Column
 	private String surname;
+	
 	@Column
 	private String email;
+	
 	@Column
 	private String phone;
+	
 	@Column
 	private String password;
 
