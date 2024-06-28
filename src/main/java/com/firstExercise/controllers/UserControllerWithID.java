@@ -13,6 +13,7 @@ public class UserControllerWithID {
 	@Autowired
 	private UserDao userDao;
 
+	@CrossOrigin(origins="http://localhost:3000")
 	@RequestMapping(value = "api/users", method = RequestMethod.GET)
 	public List<User> getUsers() {
 		List<User> user = userDao.getUsers();
