@@ -1,11 +1,13 @@
-package com.firstExercise.controllers;
+package com.ITJobsBackend.controllers;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.firstExercise.dao.UserDao;
-import com.firstExercise.models.User;
+
+import com.ITJobsBackend.dao.UserDao;
+import com.ITJobsBackend.models.User;
+
 
 @RestController
 public class UserControllerWithID {

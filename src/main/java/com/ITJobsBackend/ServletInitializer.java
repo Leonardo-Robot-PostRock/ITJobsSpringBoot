@@ -1,4 +1,4 @@
-package com.firstExercise;
+package com.ITJobsBackend;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

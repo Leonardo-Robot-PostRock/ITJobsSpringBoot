@@ -1,4 +1,4 @@
-package com.firstExercise.controllers;
+package com.ITJobsBackend.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.firstExercise.models.User;
+import com.ITJobsBackend.models.User;
 
 @RestController
 public class UserController {

@@ -1,4 +1,4 @@
-package com.firstExercise.models;
+package com.ITJobsBackend.models;
 
 import jakarta.persistence.*;
 

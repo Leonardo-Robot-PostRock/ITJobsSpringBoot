@@ -1,7 +1,7 @@
-package com.firstExercise.dao;
+package com.ITJobsBackend.dao;
 
 import java.util.List;
-import com.firstExercise.models.User;
+import com.ITJobsBackend.models.User;
 import jakarta.transaction.Transactional;
 
 @Transactional
