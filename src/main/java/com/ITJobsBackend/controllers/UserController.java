@@ -1,82 +1,45 @@
 package com.ITJobsBackend.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import com.ITJobsBackend.dao.UserDao;
 import com.ITJobsBackend.models.User;
+
 
 @RestController
 public class UserController {
-	public String mensaje() {
-		return "Hola mundo";
+
+	@Autowired
+	private UserDao userDao;
+
+	@CrossOrigin(origins="http://localhost:3000")
+	@RequestMapping(value = "api/users", method = RequestMethod.GET)
+	public List<User> getUsers() {
+		List<User> user = userDao.getUsers();
+
+		return user;
 	}
 
-	@RequestMapping(value = "person")
-	public List<String> listPeople() {
-		return List.of("Leonardo", "Luciana", "Matias");
-	}
-	
-	@RequestMapping(value = "users")
-	public User listUsers() {
-		User user = new User();
-		
-		user.setName("Leonardo");
-		user.setSurname("Puebla");
-		user.setEmail("leonardo@gmail.com");
-		user.setPhone("123431243");
-		user.setPassword("1234");
-		
-		return user;
-		 
-	}
-	
-	@RequestMapping(value = "user/{id}")
-	public User getUserById(@PathVariable Long id) {
-		User user = new User();
-		
-		user.setId(id);
-		user.setName("Leonardo");
-		user.setSurname("Puebla");
-		user.setEmail("leonardo@gmail.com");
-		user.setPhone("2556881234");
-		user.setPassword("1234");
-		
-		return user;
-		
-	}
-	
-	@RequestMapping(value = "list/user")
-	public List<User> list_severalUsers() {
-		List<User> user = new ArrayList<>();
-		
-		User firstUser = new User();
-		
-		firstUser.setId(3L);
-		firstUser.setName("Leonardo");
-		firstUser.setSurname("Puebla");
-		firstUser.setEmail("leonardo@gmail.com");
-		firstUser.setPhone("123123121");
-		firstUser.setPassword("1234");
-		
-		User secondUser = new User();
-		
-		
-		secondUser.setId(4L);
-		secondUser.setName("Roberto");
-		secondUser.setSurname("Gonzalez");
-		secondUser.setEmail("robertito@gmail.com");
-		secondUser.setPhone("123123124");
-		secondUser.setPassword("5678");
-		
-		user.add(firstUser);
-		user.add(secondUser);
-		
-		return user;
-		
+	@RequestMapping(value = "api/delete-user/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable("id") Long id) {
+		userDao.deleteUserById(id);
 	}
 
+	@RequestMapping(value = "api/add-user", method = RequestMethod.POST)
+	public void add(@RequestBody User user) {
+		userDao.addUser(user);
+	}
+
+	@RequestMapping(value = "api/update-user/{id}", method = RequestMethod.PUT)
+	public void update(@PathVariable("id") Long id, @RequestBody User user) {
+		userDao.updateUser(id, user);
+	}
+
+	@RequestMapping(value = "api/user/{id}", method = RequestMethod.GET)
+	public User getUser(@PathVariable("id") Long id) {
+		return userDao.findUserById(id);
+	}
 }
