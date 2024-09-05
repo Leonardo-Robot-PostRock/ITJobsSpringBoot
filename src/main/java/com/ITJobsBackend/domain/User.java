@@ -33,6 +33,7 @@ public class User implements Serializable{
 	@Column
 	private String email;
 
+	@NotBlank
 	@Column
 	private String phone;
 
