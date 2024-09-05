@@ -1,6 +1,8 @@
 package com.ITJobsBackend.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -9,7 +11,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -41,4 +43,12 @@ public class User implements Serializable{
 	@Column(nullable = false)
 	@Size(min = 8)
 	private String password;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "user_roles",
+		joinColumns = @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "role_id")
+	)
+	private Set<Roles> roles = new HashSet<>();
 }
