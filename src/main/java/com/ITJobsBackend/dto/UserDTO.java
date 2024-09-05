@@ -1,18 +1,101 @@
-package com.ITJobsBackend.dao;
+package com.ITJobsBackend.dto;
 
-import java.util.List;
-import com.ITJobsBackend.models.User;
-import jakarta.transaction.Transactional;
+public class UserDTO {
+	private String name;
+	private String surname;
+	private String dni;
+	private String email;
+	private String phone;
 
-@Transactional
-public interface UserDao {
-	public List<User> getUsers();
+	public String getName() {
+		return name;
+	}
 
-	void deleteUserById(Long id);
-	
-	void addUser(User user);
-	
-	void updateUser(Long id,User user);
-	
-	public User findUserById(Long id);
+	private void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	private void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	private void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	private void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public static UserDTOBuilder getBuilder() {
+		return new UserDTOBuilder();
+	}
+
+	public static class UserDTOBuilder {
+		private String name;
+		private String surname;
+		private String dni;
+		private String email;
+		private String phone;
+		private UserDTO userDTO;
+
+		public UserDTOBuilder withName(String name) {
+			this.name = name;
+			return this;
+		}
+
+		public UserDTOBuilder withSurname(String surname) {
+			this.surname = surname;
+			return this;
+		}
+
+		public UserDTOBuilder withDNI(String dni) {
+			this.dni = dni;
+			return this;
+		}
+
+		public UserDTOBuilder withPhone(String phone) {
+			this.phone = phone;
+			return this;
+		}
+
+		public UserDTOBuilder withEmail(String email) {
+			this.email = email;
+			return this;
+		}
+
+		public UserDTO build() {
+			this.userDTO = new UserDTO();
+			userDTO.setName(name);
+			userDTO.setSurname(surname);
+			userDTO.setDni(dni);
+			userDTO.setEmail(email);
+			userDTO.setPhone(phone);
+			return this.userDTO;
+		}
+
+		public UserDTO getUserDTO() {
+			return this.userDTO;
+		}
+	}
 }
