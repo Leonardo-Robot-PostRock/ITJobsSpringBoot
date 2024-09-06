@@ -1,7 +1,6 @@
 package com.ITJobsBackend.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -16,13 +15,13 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
 	private Long id;
 
 	@NotBlank
 	@Column(nullable = false)
 	private String name;
 
+	@NotBlank
 	@Column(nullable = false)
 	private String surname;
 
@@ -44,11 +43,11 @@ public class User implements Serializable {
 	@Size(min = 8)
 	private String password;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "user_roles",
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id")
-	)
-	private Set<Roles> roles = new HashSet<>();
+	) 
+	private Set<Roles> roles;
 }
