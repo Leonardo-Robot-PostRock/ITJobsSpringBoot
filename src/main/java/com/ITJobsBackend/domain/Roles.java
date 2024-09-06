@@ -16,16 +16,16 @@ public class Roles implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 
 	@NotNull
-	@Column(length = 50)
+	@Column(length = 50, unique = true)
 	private String name;
 
 	@Column
 	private String description;
 
-	@ManyToMany(mappedBy = "roles")
-	private Set<User> users;
+	@OneToMany(mappedBy = "roles")
+	private Set<User> user;
 
 }
